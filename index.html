@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadiees Foods 'N Cakes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="image/png" href="khadiees.png"> <!-- Favicon -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #d32f2f, #ff5722, #ffca28);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #d32f2f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 1s ease-in-out 20s forwards;
+            /* 20-second delay */
+        }
+
+        #preloader img {
+            width: 150px;
+            animation: bounce 1.5s infinite, rotate 2s linear infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(211, 47, 47, 0.9);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.5s;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 87, 34, 0.9);
+            transform: scale(1.02);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .logo img {
+            height: 50px;
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #ffca28;
+            text-shadow: 0 0 10px #ffca28;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(211, 47, 47, 0.6), rgba(211, 47, 47, 0.6)), url('dish-2.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            animation: zoomIn 1.5s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInUp 2s ease-out;
+            text-shadow: 0 0 15px rgba(255, 202, 40, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            animation: fadeInUp 2.5s ease-out;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff5722;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            animation: bounceIn 2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 202, 40, 0.5);
+            background-color: #ff8a50;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin: 40px auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            animation: float 4s ease-in-out infinite;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #d32f2f;
+            width: 100%;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            animation: slideUp 1s ease-out;
+            text-shadow: 0 0 10px rgba(255, 87, 34, 0.3);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1.5s ease-out;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(211, 47, 47, 0.2);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+            animation: fadeIn 2s;
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 15px;
+            animation: fadeIn 2.2s;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background-color: #ffebee;
+            color: #d32f2f;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            animation: bounceIn 2.5s;
+        }
+
+        /* New Carousel Section Styles */
+        .carousel-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin: 40px auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            animation: float 4s ease-in-out infinite;
+            width: 95%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(211, 47, 47, 0.7);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(211, 47, 47, 1);
+        }
+        
+        .carousel-prev {
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .carousel-next {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background: #d32f2f;
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-slide img {
+                height: 300px;
+            }
+            
+            .carousel-btn {
+                padding: 10px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Slideshow Modal */
+        .slideshow-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slideshow-content {
+            position: relative;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+        }
+
+        .slideshow-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideshow-slide img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .slideshow-caption {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.2rem;
+        }
+
+        .slideshow-prev,
+        .slideshow-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+
+        .slideshow-prev:hover,
+        .slideshow-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slideshow-prev {
+            left: -50px;
+        }
+
+        .slideshow-next {
+            right: -50px;
+        }
+
+        .slideshow-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+
+        .slideshow-dots {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .slideshow-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slideshow-dot.active {
+            background-color: #d32f2f;
+        }
+
+        /* Menu Section */
+        .menu-container {
+            background-color: rgba(255, 224, 178, 0.9);
+            padding: 60px 0;
+            border-radius: 15px;
+            animation: spinIn 1.5s ease-out;
+            margin: 40px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        @keyframes spinIn {
+            from {
+                transform: rotate(-10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .menu-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-section h3 {
+            font-size: 1.8rem;
+            color: #ff5722;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff5722;
+            animation: slideInLeft 1s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .menu-item {
+            margin-bottom: 25px;
+            animation: fadeIn 2s;
+        }
+
+        .menu-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: flipIn 1.5s ease-out;
+        }
+
+        @keyframes flipIn {
+            from {
+                transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: perspective(400px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #d32f2f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+
+        .testimonial-avatar i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .testimonial-author-info {
+            flex: 1;
+        }
+
+        .rating {
+            color: #ffca28;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .testimonial-event {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background-color: rgba(255, 224, 178, 0.9);
+            padding: 60px 0;
+            border-radius: 15px;
+            animation: spinIn 1.5s ease-out;
+            margin: 40px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .contact-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-family: 'Roboto', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #ff5722;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 87, 34, 0.3);
+        }
+
+        .contact-info {
+            padding: 20px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+
+        .contact-icon {
+            background-color: #d32f2f;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(360deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #d32f2f;
+            color: white;
+            padding: 40px 0 20px;
+            animation: slideInUp 1s ease-out;
+            margin-top: 40px;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .footer-content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-link:hover {
+            color: #ffca28;
+            transform: scale(1.3);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                background-color: rgba(211, 47, 47, 0.9);
+                width: 100%;
+                height: calc(100vh - 60px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .slideshow-prev {
+                left: 10px;
+            }
+
+            .slideshow-next {
+                right: 10px;
+            }
+
+            .slideshow-close {
+                top: 10px;
+                right: 10px;
+            }
+            
+            section {
+                width: 90%;
+                margin: 30px auto;
+                padding: 60px 0;
+            }
+            
+            .carousel-section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="khadiees.png" alt="Khadiees Logo">
+    </div>
+
+    <!-- Slideshow Modal -->
+    <div class="slideshow-modal" id="slideshowModal">
+        <div class="slideshow-content">
+            <span class="slideshow-close" id="slideshowClose">&times;</span>
+
+            <div class="slideshow-slide fade">
+                <img src="" alt="Service Image">
+                <div class="slideshow-caption"></div>
+            </div>
+
+            <a class="slideshow-prev" id="slideshowPrev">&#10094;</a>
+            <a class="slideshow-next" id="slideshowNext">&#10095;</a>
+
+            <div class="slideshow-dots" id="slideshowDots"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container container">
+            <div class="logo"><img src="khadiees.png" alt="Khadiees Logo"></div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="material-icons">menu</i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content container">
+            <h1>Khadiees Foods 'N Cakes</h1>
+            <p>Delicious Treats for Every Occasion</p>
+            <a href="#contact" class="btn">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services container" id="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>We offer a variety of delightful options for all your events and celebrations.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-service="foods">
+                <div class="service-img">
+                    <img src="./dish-1.jpg"
+                        alt="Foods">
+                </div>
+                <div class="service-content">
+                    <h3>Foods</h3>
+                    <p>Delicious and hearty meals tailored to your taste.</p>
+                    <span class="price-tag">From $15 per person</span>
+                </div>
+            </div>
+            <div class="service-card" data-service="cakes">
+                <div class="service-img">
+                    <img src="./cake-1.jpg"
+                        alt="Cakes">
+                </div>
+                <div class="service-content">
+                    <h3>Cakes</h3>
+                    <p>Custom-designed cakes for birthdays, weddings, and more.</p>
+                    <span class="price-tag">From $30 per cake</span>
+                </div>
+            </div>
+            <div class="service-card" data-service="pastries">
+                <div class="service-img">
+                    <img src="./cup-cake-1.jpg"
+                        alt="Pastries">
+                </div>
+                <div class="service-content">
+                    <h3>Pastries</h3>
+                    <p>Freshly baked pastries for any occasion.</p>
+                    <span class="price-tag">From $10 per dozen</span>
+                </div>
+            </div>
+            <div class="service-card" data-service="small-chops">
+                <div class="service-img">
+                    <img src="./small-chops-1.jpg"
+                        alt="Small Chops">
+                </div>
+                <div class="service-content">
+                    <h3>Small Chops</h3>
+                    <p>Bite-sized delights perfect for parties.</p>
+                    <span class="price-tag">From $20 per tray</span>
+                </div>
+            </div>
+            <div class="service-card" data-service="chinchin">
+                <div class="service-img">
+                    <img src="./chinchin-1.jpg"
+                        alt="Chinchin">
+                </div>
+                <div class="service-content">
+                    <h3>Chinchin</h3>
+                    <p>Traditional crunchy snacks made with love.</p>
+                    <span class="price-tag">From $8 per pack</span>
+                </div>
+            </div>
+            <div class="service-card" data-service="spicy-meat">
+                <div class="service-img">
+                    <img src="./beefs-1.jpg"
+                        alt="Spicy Meat and Chicken">
+                </div>
+                <div class="service-content">
+                    <h3>Spicy Meat & Chicken</h3>
+                    <p>Flavorful and spicy meat dishes that will tantalize your taste buds.</p>
+                    <span class="price-tag">From $25 per platter</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Carousel Gallery Section -->
+    <section class="carousel-section container" id="gallery">
+        <div class="section-title">
+            <h2>Our Gallery</h2>
+            <p>Take a look at some of our delicious creations</p>
+        </div>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Carousel slides will be added dynamically with JavaScript -->
+            </div>
+            
+            <button class="carousel-btn carousel-prev" id="carouselPrev">&#10094;</button>
+            <button class="carousel-btn carousel-next" id="carouselNext">&#10095;</button>
+        </div>
+        
+        <div class="carousel-dots" id="carouselDots">
+            <!-- Dots will be added dynamically with JavaScript -->
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-container" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sample Menu</h2>
+                <p>Explore our delicious offerings customized to your preferences.</p>
+            </div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h3>Foods</h3>
+                    <div class="menu-item">
+                        <h4>Jollof Rice</h4>
+                        <p>Spicy tomato-based rice with vegetables and chicken</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Fried Rice</h4>
+                        <p>Flavorful rice with mixed vegetables and shrimp</p>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h3>Cakes</h3>
+                    <div class="menu-item">
+                        <h4>Chocolate Cake</h4>
+                        <p>Rich chocolate layers with creamy frosting</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Vanilla Cake</h4>
+                        <p>Light vanilla sponge with buttercream</p>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h3>Pastries</h3>
+                    <div class="menu-item">
+                        <h4>Croissants</h4>
+                        <p>Buttery and flaky pastries</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Danishes</h4>
+                        <p>Fruit-filled pastries with a crispy finish</p>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h3>Small Chops</h3>
+                    <div class="menu-item">
+                        <h4>Spring Rolls</h4>
+                        <p>Crispy rolls with vegetable filling</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Chicken Samosas</h4>
+                        <p>Spiced chicken in a crispy pastry</p>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h3>Chinchin</h3>
+                    <div class="menu-item">
+                        <h4>Classic Chinchin</h4>
+                        <p>Crunchy and mildly sweet</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Spiced Chinchin</h4>
+                        <p>With a hint of cinnamon and nutmeg</p>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <h3>Spicy Meat & Chicken</h3>
+                    <div class="menu-item">
+                        <h4>Spicy Grilled Chicken</h4>
+                        <p>Marinated in special spices and grilled to perfection</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Peppered Meat</h4>
+                        <p>Assorted meat cooked in a spicy pepper sauce</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn">Download Full Menu (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials container" id="testimonials">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <p>Hear from those who've enjoyed our treats.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="testimonial-author-info">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-author">Amina Bello</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"The cakes were a hit at my event! Everyone kept asking where I got them
+                    from. The design was exactly what I wanted and it tasted even better than it looked."</p>
+                <p class="testimonial-event">Birthday Party</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="testimonial-author-info">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-author">Tunde Adebayo</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Amazing small chops and great service. Our corporate event was a huge
+                    success thanks to Khadiees. The delivery was on time and the presentation was impeccable."</p>
+                <p class="testimonial-event">Corporate Event</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="testimonial-author-info">
+                        <div class="rating">★★★★☆</div>
+                        <p class="testimonial-author">Chinedu Okoro</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"The spicy meat and chicken platter was the star of our party! The flavors
+                    were incredible and everyone kept going back for more. Will definitely order again."</p>
+                <p class="testimonial-event">House Warming</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="testimonial-author-info">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-author">Funke Adeola</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"I've ordered chinchin multiple times now and it's always fresh and
+                    delicious. The perfect snack for my family. The customer service is also exceptional."</p>
+                <p class="testimonial-event">Family Gathering</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="testimonial-author-info">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-author">Emeka Nwankwo</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"The jollof rice was absolutely fantastic! It had that authentic party
+                    jollof taste that everyone loves. The portion was generous and it arrived still hot."</p>
+                <p class="testimonial-event">Wedding Reception</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <div class="testimonial-author-info">
+                        <div class="rating">★★★★☆</div>
+                        <p class="testimonial-author">Bisi Johnson</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"The pastries were flaky, buttery, and simply delicious. Perfect for my
+                    daughter's school event. The parents couldn't stop complimenting them."</p>
+                <p class="testimonial-event">School Event</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-container" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to order? Contact us today!</p>
+            </div>
+            <div class="contact-columns">
+                <div class="contact-form">
+                    <form id="cateringForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select id="eventType" class="form-control" required>
+                                <option value="">Select an event type</option>
+                                <option value="foods">Foods</option>
+                                <option value="cakes">Cakes</option>
+                                <option value="pastries">Pastries</option>
+                                <option value="small-chops">Small Chops</option>
+                                <option value="chinchin">Chinchin</option>
+                                <option value="spicy-meat">Spicy Meat & Chicken</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Quantity</label>
+                            <input type="number" id="guests" class="form-control" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Inquiry</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="material-icons">location_on</i>
+                        </div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Food Lane, Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="material-icons">phone</i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+234 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="material-icons">email</i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@khadiees.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2>Khadiees Foods 'N Cakes</h2>
+                <p>Delicious treats for every occasion</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="material-icons">facebook</i></a>
+                <a href="#" class="social-link"><i class="material-icons">photo_camera</i></a>
+                <a href="#" class="social-link"><i class="material-icons">tiktok</i></a>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Khadiees Foods 'N Cakes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader with 20-second delay
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.display = 'none';
+            }, 5000); // 20 seconds
+        });
+
+        // Auto-update year in footer
+        function updateYear() {
+            const copyright = document.querySelector('.copyright p');
+            const currentYear = new Date().getFullYear();
+            copyright.textContent = `© ${currentYear} Khadiees Foods 'N Cakes. All rights reserved.`;
+        }
+        updateYear();
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Form submission
+        const cateringForm = document.getElementById('cateringForm');
+        cateringForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly.');
+            cateringForm.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Service Slideshow Functionality
+        const serviceImages = {
+            'foods': [
+                { src: './dish-1.jpg' },
+                { src: './dish-2.jpg' },
+                { src: './dish-3.jpg' },
+                { src: './dish-4.jpg' },
+                { src: './dish-5.jpg' }
+            ],
+            'cakes': [
+                { src: './cake-1.jpg' },
+                { src: './cake-2.jpg' },
+                { src: './cake-3.jpg' },
+                { src: './cake-4.jpg' },
+                { src: './cake-5.jpg' },
+                { src: './cake-6.jpg' },
+                { src: './cake-7.jpg' },
+                { src: './cake-8.jpg' }
+            ],
+            'pastries': [
+                { src: './snacks-1.jpg' },
+                { src: './snacks-2.jpg' },
+                { src: './cup-cake-1.jpg' },
+                { src: './cup-cake-2.jpg' },
+                { src: './cup-cake-3.jpg' },
+                { src: './cup-cake-4.jpg' },
+            ],
+            'small-chops': [
+                { src: './small-chops-1.jpg'},
+                { src: './small-chops-2.jpg'},
+                { src: './small-chops-3.jpg'}
+            ],
+            'chinchin': [
+                { src: './chinchin-1.jpg' },
+                { src: './chinchin-1.jpg' },
+            ],
+            'spicy-meat': [
+                { src: './beefs-1.jpg', caption: 'Spicy Grilled Chicken' },
+                { src: './beefs-2.jpg', caption: 'Peppered Meat Platter' },
+                { src: './beefs-3.jpg', caption: 'Assorted Spicy Meat Dishes' }
+            ]
+        };
+
+        // Initialize slideshow variables
+        let currentSlideIndex = 0;
+        let currentService = '';
+
+        // Get slideshow elements
+        const slideshowModal = document.getElementById('slideshowModal');
+        const slideshowImage = document.querySelector('.slideshow-slide img');
+        const slideshowCaption = document.querySelector('.slideshow-caption');
+        const slideshowPrev = document.getElementById('slideshowPrev');
+        const slideshowNext = document.getElementById('slideshowNext');
+        const slideshowClose = document.getElementById('slideshowClose');
+        const slideshowDots = document.getElementById('slideshowDots');
+
+        // Add click event to service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const serviceType = card.getAttribute('data-service');
+                showSlideshow(serviceType);
+            });
+        });
+
+        // Function to show slideshow for a service
+        function showSlideshow(serviceType) {
+            currentService = serviceType;
+            currentSlideIndex = 0;
+            updateSlideshow();
+            slideshowModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        // Function to update slideshow content
+        function updateSlideshow() {
+            const images = serviceImages[currentService];
+
+            // Update image and caption
+            slideshowImage.src = images[currentSlideIndex].src;
+            slideshowCaption.textContent = images[currentSlideIndex].caption || '';
+
+            // Update dots
+            slideshowDots.innerHTML = '';
+            for (let i = 0; i < images.length; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('slideshow-dot');
+                if (i === currentSlideIndex) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentSlideIndex = i;
+                    updateSlideshow();
+                });
+                slideshowDots.appendChild(dot);
+            }
+        }
+
+        // Next/previous controls
+        slideshowPrev.addEventListener('click', () => {
+            currentSlideIndex--;
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = serviceImages[currentService].length - 1;
+            }
+            updateSlideshow();
+        });
+
+        slideshowNext.addEventListener('click', () => {
+            currentSlideIndex++;
+            if (currentSlideIndex >= serviceImages[currentService].length) {
+                currentSlideIndex = 0;
+            }
+            updateSlideshow();
+        });
+
+        // Close slideshow
+        slideshowClose.addEventListener('click', () => {
+            slideshowModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        });
+
+        // Close slideshow when clicking outside content
+        slideshowModal.addEventListener('click', (e) => {
+            if (e.target === slideshowModal) {
+                slideshowModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }
+        });
+
+        // Keyboard navigation for slideshow
+        document.addEventListener('keydown', (e) => {
+            if (slideshowModal.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    slideshowPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    slideshowNext.click();
+                } else if (e.key === 'Escape') {
+                    slideshowClose.click();
+                }
+            }
+        });
+
+        // New Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Combine all images from all services
+            const allImages = [];
+            
+            for (const service in serviceImages) {
+                serviceImages[service].forEach(image => {
+                    allImages.push({
+                        src: image.src,
+                        caption: image.caption || service.charAt(0).toUpperCase() + service.slice(1)
+                    });
+                });
+            }
+            
+            // Initialize carousel
+            const carouselTrack = document.getElementById('carouselTrack');
+            const carouselDots = document.getElementById('carouselDots');
+            const carouselPrev = document.getElementById('carouselPrev');
+            const carouselNext = document.getElementById('carouselNext');
+            
+            let currentIndex = 0;
+            
+            // Create slides and dots
+            allImages.forEach((image, index) => {
+                // Create slide
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `
+                    <img src="${image.src}" alt="${image.caption}">
+                    <div class="carousel-caption">${image.caption}</div>
+                `;
+                carouselTrack.appendChild(slide);
+                
+                // Create dot
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                carouselDots.appendChild(dot);
+            });
+            
+            // Navigation functions
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % allImages.length;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+                updateCarousel();
+            }
+            
+            function updateCarousel() {
+                // Update track position
+                carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update active dot
+                document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Add event listeners
+            carouselPrev.addEventListener('click', prevSlide);
+            carouselNext.addEventListener('click', nextSlide);
+            
+            // Auto-advance carousel
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        });
+    </script>
+</body>
+
+</html>

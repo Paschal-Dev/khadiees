@@ -7,7 +7,7 @@
     <title>Khadiees Foods 'N Cakes</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" type="image/png" href="khadiees.png"> <!-- Favicon -->
+    <link rel="icon" type="image/png" href="khadiees.png">
     <style>
         * {
             margin: 0;
@@ -27,17 +27,9 @@
         }
 
         @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
@@ -60,7 +52,6 @@
             align-items: center;
             z-index: 9999;
             animation: fadeOut 1s ease-in-out 20s forwards;
-            /* 20-second delay */
         }
 
         #preloader img {
@@ -69,32 +60,17 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
         @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+            to { opacity: 0; visibility: hidden; }
         }
 
         /* Header Styles */
@@ -123,13 +99,8 @@
         }
 
         @keyframes slideInDown {
-            from {
-                transform: translateY(-100%);
-            }
-
-            to {
-                transform: translateY(0);
-            }
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
 
         .logo img {
@@ -173,17 +144,9 @@
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         /* Hero Section */
@@ -202,15 +165,8 @@
         }
 
         @keyframes zoomIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .hero-content h1 {
@@ -252,31 +208,14 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes bounceIn {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            70% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         /* Section Styles */
@@ -292,17 +231,9 @@
         }
 
         @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
         }
 
         .section-title {
@@ -328,15 +259,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         /* Services Section */
@@ -406,7 +330,7 @@
             animation: bounceIn 2.5s;
         }
 
-        /* New Carousel Section Styles */
+        /* Carousel Section Styles */
         .carousel-section {
             padding: 80px 0;
             background: rgba(255, 255, 255, 0.9);
@@ -421,7 +345,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .carousel-container {
             position: relative;
             max-width: 900px;
@@ -431,24 +355,24 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
+
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        
+
         .carousel-slide {
             min-width: 100%;
             position: relative;
         }
-        
+
         .carousel-slide img {
             width: 100%;
             height: 500px;
             object-fit: cover;
             display: block;
         }
-        
+
         .carousel-caption {
             position: absolute;
             bottom: 0;
@@ -459,7 +383,7 @@
             padding: 15px;
             text-align: center;
         }
-        
+
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -473,27 +397,27 @@
             z-index: 10;
             transition: background 0.3s;
         }
-        
+
         .carousel-btn:hover {
             background: rgba(211, 47, 47, 1);
         }
-        
+
         .carousel-prev {
             left: 0;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .carousel-next {
             right: 0;
             border-radius: 5px 0 0 5px;
         }
-        
+
         .carousel-dots {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
-        
+
         .carousel-dot {
             width: 12px;
             height: 12px;
@@ -503,20 +427,9 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        
+
         .carousel-dot.active {
             background: #d32f2f;
-        }
-        
-        @media (max-width: 768px) {
-            .carousel-slide img {
-                height: 300px;
-            }
-            
-            .carousel-btn {
-                padding: 10px;
-                font-size: 1.2rem;
-            }
         }
 
         /* Slideshow Modal */
@@ -629,15 +542,8 @@
         }
 
         @keyframes spinIn {
-            from {
-                transform: rotate(-10deg);
-                opacity: 0;
-            }
-
-            to {
-                transform: rotate(0);
-                opacity: 1;
-            }
+            from { transform: rotate(-10deg); opacity: 0; }
+            to { transform: rotate(0); opacity: 1; }
         }
 
         .menu-columns {
@@ -656,15 +562,8 @@
         }
 
         @keyframes slideInLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         .menu-item {
@@ -699,15 +598,8 @@
         }
 
         @keyframes flipIn {
-            from {
-                transform: perspective(400px) rotateY(90deg);
-                opacity: 0;
-            }
-
-            to {
-                transform: perspective(400px) rotateY(0deg);
-                opacity: 1;
-            }
+            from { transform: perspective(400px) rotateY(90deg); opacity: 0; }
+            to { transform: perspective(400px) rotateY(0deg); opacity: 1; }
         }
 
         .testimonial-header {
@@ -847,15 +739,8 @@
         }
 
         @keyframes slideInUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .footer-content {
@@ -889,7 +774,28 @@
             color: #ccc;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Full Width, Centered, and Wider Form on Mobile */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content p {
+                font-size: 1.3rem;
+            }
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .carousel-slide img {
+                height: 400px;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -899,13 +805,14 @@
                 position: fixed;
                 top: 60px;
                 left: -100%;
-                background-color: rgba(211, 47, 47, 0.9);
+                background-color: rgba(211, 47, 47, 0.95);
                 width: 100%;
                 height: calc(100vh - 60px);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                transition: left 0.3s;
+                transition: left 0.3s ease;
+                padding: 20px;
             }
 
             .nav-menu.active {
@@ -916,16 +823,179 @@
                 margin: 15px 0;
             }
 
+            .hero {
+                height: 80vh;
+                margin: 60px 0 0 0;
+                padding: 0;
+                width: 100%;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .hero-content p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
 
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 50px 0;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .menu-columns,
+            .contact-columns {
+                gap: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-content p {
+                font-size: 0.9rem;
+            }
+
+            .price-tag {
+                font-size: 0.85rem;
+            }
+
+            .carousel-section {
+                padding: 50px 0;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .carousel-container {
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .carousel-slide img {
+                height: 300px;
+            }
+
+            .carousel-btn {
+                padding: 10px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-caption {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .carousel-dots {
+                display: none;
+            }
+
+            .menu-container,
+            .contact-container {
+                padding: 50px 0;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .menu-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .menu-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .menu-item p {
+                font-size: 0.9rem;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+            }
+
+            .testimonial-avatar i {
+                font-size: 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 0.95rem;
+            }
+
+            .contact-form {
+                padding: 20px;
+                width: 90%; /* Increased form width on mobile */
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-control {
+                padding: 10px;
             }
 
             .slideshow-prev {
@@ -940,15 +1010,210 @@
                 top: 10px;
                 right: 10px;
             }
-            
-            section {
-                width: 90%;
-                margin: 30px auto;
-                padding: 60px 0;
+
+            .slideshow-slide img {
+                max-height: 50vh;
             }
-            
-            .carousel-section {
-                padding: 60px 20px;
+
+            .slideshow-caption {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .hero {
+                height: 70vh;
+                margin: 60px 0 0 0;
+                width: 100%;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-columns,
+            .contact-columns {
+                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .carousel-slide img {
+                height: 250px;
+            }
+
+            .carousel-btn {
+                padding: 8px;
+                font-size: 1rem;
+            }
+
+            .carousel-dots {
+                display: none;
+            }
+
+            .service-img {
+                height: 180px;
+            }
+
+            .service-content {
+                padding: 15px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .testimonial-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testimonial-avatar {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .contact-form {
+                padding: 15px;
+                width: 95%; /* Further increased form width for smaller screens */
+                max-width: 95%;
+                margin: 0 auto;
+            }
+
+            footer {
+                padding: 30px 0 15px;
+                margin: 0;
+                width: 100%;
+                border-radius: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .footer-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .social-links {
+                display: flex;
+                justify-content: center;
+            }
+
+            .social-link {
+                font-size: 1.3rem;
+                margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .carousel-slide img {
+                height: 200px;
+            }
+
+            .service-img {
+                height: 160px;
+            }
+
+            .service-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .menu-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .contact-form {
+                padding: 15px;
+                width: 95%; /* Maintain increased form width */
+                max-width: 95%;
+                margin: 0 auto;
+            }
+        }
+
+        /* Orientation-specific adjustments */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 80px 0 40px;
+                margin: 60px 0 0 0;
+                width: 100%;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-menu {
+                overflow-y: auto;
             }
         }
     </style>
@@ -964,15 +1229,12 @@
     <div class="slideshow-modal" id="slideshowModal">
         <div class="slideshow-content">
             <span class="slideshow-close" id="slideshowClose">&times;</span>
-
             <div class="slideshow-slide fade">
                 <img src="" alt="Service Image">
                 <div class="slideshow-caption"></div>
             </div>
-
             <a class="slideshow-prev" id="slideshowPrev">&#10094;</a>
             <a class="slideshow-next" id="slideshowNext">&#10095;</a>
-
             <div class="slideshow-dots" id="slideshowDots"></div>
         </div>
     </div>
@@ -1013,8 +1275,7 @@
         <div class="services-grid">
             <div class="service-card" data-service="foods">
                 <div class="service-img">
-                    <img src="./dish-1.jpg"
-                        alt="Foods">
+                    <img src="./dish-1.jpg" alt="Foods">
                 </div>
                 <div class="service-content">
                     <h3>Foods</h3>
@@ -1024,8 +1285,7 @@
             </div>
             <div class="service-card" data-service="cakes">
                 <div class="service-img">
-                    <img src="./cake-1.jpg"
-                        alt="Cakes">
+                    <img src="./cake-1.jpg" alt="Cakes">
                 </div>
                 <div class="service-content">
                     <h3>Cakes</h3>
@@ -1035,8 +1295,7 @@
             </div>
             <div class="service-card" data-service="pastries">
                 <div class="service-img">
-                    <img src="./cup-cake-1.jpg"
-                        alt="Pastries">
+                    <img src="./cup-cake-1.jpg" alt="Pastries">
                 </div>
                 <div class="service-content">
                     <h3>Pastries</h3>
@@ -1046,8 +1305,7 @@
             </div>
             <div class="service-card" data-service="small-chops">
                 <div class="service-img">
-                    <img src="./small-chops-1.jpg"
-                        alt="Small Chops">
+                    <img src="./small-chops-1.jpg" alt="Small Chops">
                 </div>
                 <div class="service-content">
                     <h3>Small Chops</h3>
@@ -1057,8 +1315,7 @@
             </div>
             <div class="service-card" data-service="chinchin">
                 <div class="service-img">
-                    <img src="./chinchin-1.jpg"
-                        alt="Chinchin">
+                    <img src="./chinchin-1.jpg" alt="Chinchin">
                 </div>
                 <div class="service-content">
                     <h3>Chinchin</h3>
@@ -1068,8 +1325,7 @@
             </div>
             <div class="service-card" data-service="spicy-meat">
                 <div class="service-img">
-                    <img src="./beefs-1.jpg"
-                        alt="Spicy Meat and Chicken">
+                    <img src="./beefs-1.jpg" alt="Spicy Meat and Chicken">
                 </div>
                 <div class="service-content">
                     <h3>Spicy Meat & Chicken</h3>
@@ -1080,25 +1336,18 @@
         </div>
     </section>
 
-    <!-- New Carousel Gallery Section -->
+    <!-- Carousel Gallery Section -->
     <section class="carousel-section container" id="gallery">
         <div class="section-title">
             <h2>Our Gallery</h2>
             <p>Take a look at some of our delicious creations</p>
         </div>
-        
         <div class="carousel-container">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- Carousel slides will be added dynamically with JavaScript -->
-            </div>
-            
+            <div class="carousel-track" id="carouselTrack"></div>
             <button class="carousel-btn carousel-prev" id="carouselPrev">&#10094;</button>
             <button class="carousel-btn carousel-next" id="carouselNext">&#10095;</button>
         </div>
-        
-        <div class="carousel-dots" id="carouselDots">
-            <!-- Dots will be added dynamically with JavaScript -->
-        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
     </section>
 
     <!-- Menu Section -->
@@ -1199,8 +1448,7 @@
                         <p class="testimonial-author">Amina Bello</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"The cakes were a hit at my event! Everyone kept asking where I got them
-                    from. The design was exactly what I wanted and it tasted even better than it looked."</p>
+                <p class="testimonial-text">"The cakes were a hit at my event! Everyone kept asking where I got them from. The design was exactly what I wanted and it tasted even better than it looked."</p>
                 <p class="testimonial-event">Birthday Party</p>
             </div>
             <div class="testimonial-card">
@@ -1213,8 +1461,7 @@
                         <p class="testimonial-author">Tunde Adebayo</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"Amazing small chops and great service. Our corporate event was a huge
-                    success thanks to Khadiees. The delivery was on time and the presentation was impeccable."</p>
+                <p class="testimonial-text">"Amazing small chops and great service. Our corporate event was a huge success thanks to Khadiees. The delivery was on time and the presentation was impeccable."</p>
                 <p class="testimonial-event">Corporate Event</p>
             </div>
             <div class="testimonial-card">
@@ -1227,8 +1474,7 @@
                         <p class="testimonial-author">Chinedu Okoro</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"The spicy meat and chicken platter was the star of our party! The flavors
-                    were incredible and everyone kept going back for more. Will definitely order again."</p>
+                <p class="testimonial-text">"The spicy meat and chicken platter was the star of our party! The flavors were incredible and everyone kept going back for more. Will definitely order again."</p>
                 <p class="testimonial-event">House Warming</p>
             </div>
             <div class="testimonial-card">
@@ -1241,8 +1487,7 @@
                         <p class="testimonial-author">Funke Adeola</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"I've ordered chinchin multiple times now and it's always fresh and
-                    delicious. The perfect snack for my family. The customer service is also exceptional."</p>
+                <p class="testimonial-text">"I've ordered chinchin multiple times now and it's always fresh and delicious. The perfect snack for my family. The customer service is also exceptional."</p>
                 <p class="testimonial-event">Family Gathering</p>
             </div>
             <div class="testimonial-card">
@@ -1255,8 +1500,7 @@
                         <p class="testimonial-author">Emeka Nwankwo</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"The jollof rice was absolutely fantastic! It had that authentic party
-                    jollof taste that everyone loves. The portion was generous and it arrived still hot."</p>
+                <p class="testimonial-text">"The jollof rice was absolutely fantastic! It had that authentic party jollof taste that everyone loves. The portion was generous and it arrived still hot."</p>
                 <p class="testimonial-event">Wedding Reception</p>
             </div>
             <div class="testimonial-card">
@@ -1269,8 +1513,7 @@
                         <p class="testimonial-author">Bisi Johnson</p>
                     </div>
                 </div>
-                <p class="testimonial-text">"The pastries were flaky, buttery, and simply delicious. Perfect for my
-                    daughter's school event. The parents couldn't stop complimenting them."</p>
+                <p class="testimonial-text">"The pastries were flaky, buttery, and simply delicious. Perfect for my daughter's school event. The parents couldn't stop complimenting them."</p>
                 <p class="testimonial-event">School Event</p>
             </div>
         </div>
@@ -1514,18 +1757,14 @@
             currentSlideIndex = 0;
             updateSlideshow();
             slideshowModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         // Function to update slideshow content
         function updateSlideshow() {
             const images = serviceImages[currentService];
-
-            // Update image and caption
             slideshowImage.src = images[currentSlideIndex].src;
             slideshowCaption.textContent = images[currentSlideIndex].caption || '';
-
-            // Update dots
             slideshowDots.innerHTML = '';
             for (let i = 0; i < images.length; i++) {
                 const dot = document.createElement('span');
@@ -1561,14 +1800,14 @@
         // Close slideshow
         slideshowClose.addEventListener('click', () => {
             slideshowModal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Enable scrolling
+            document.body.style.overflow = 'auto';
         });
 
         // Close slideshow when clicking outside content
         slideshowModal.addEventListener('click', (e) => {
             if (e.target === slideshowModal) {
                 slideshowModal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Enable scrolling
+                document.body.style.overflow = 'auto';
             }
         });
 
@@ -1585,11 +1824,9 @@
             }
         });
 
-        // New Carousel Functionality
+        // Carousel Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Combine all images from all services
             const allImages = [];
-            
             for (const service in serviceImages) {
                 serviceImages[service].forEach(image => {
                     allImages.push({
@@ -1598,18 +1835,15 @@
                     });
                 });
             }
-            
-            // Initialize carousel
+
             const carouselTrack = document.getElementById('carouselTrack');
             const carouselDots = document.getElementById('carouselDots');
             const carouselPrev = document.getElementById('carouselPrev');
             const carouselNext = document.getElementById('carouselNext');
-            
+
             let currentIndex = 0;
-            
-            // Create slides and dots
+
             allImages.forEach((image, index) => {
-                // Create slide
                 const slide = document.createElement('div');
                 slide.className = 'carousel-slide';
                 slide.innerHTML = `
@@ -1617,47 +1851,39 @@
                     <div class="carousel-caption">${image.caption}</div>
                 `;
                 carouselTrack.appendChild(slide);
-                
-                // Create dot
+
                 const dot = document.createElement('div');
                 dot.className = 'carousel-dot';
                 if (index === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => goToSlide(index));
                 carouselDots.appendChild(dot);
             });
-            
-            // Navigation functions
+
             function goToSlide(index) {
                 currentIndex = index;
                 updateCarousel();
             }
-            
+
             function nextSlide() {
                 currentIndex = (currentIndex + 1) % allImages.length;
                 updateCarousel();
             }
-            
+
             function prevSlide() {
                 currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
                 updateCarousel();
             }
-            
+
             function updateCarousel() {
-                // Update track position
                 carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update active dot
                 document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentIndex);
                 });
             }
-            
-            // Add event listeners
+
             carouselPrev.addEventListener('click', prevSlide);
             carouselNext.addEventListener('click', nextSlide);
-            
-            // Auto-advance carousel
-            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
         });
     </script>
 </body>
